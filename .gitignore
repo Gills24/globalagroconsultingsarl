@@ -1,0 +1,16 @@
+# Logs
+logs/
+*.log
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (si besoin futur)
+node_modules/

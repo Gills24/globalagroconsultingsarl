@@ -207,102 +207,13 @@ const CounterAnimation = {
 /* ============================================
  * MODULE: CONTACT FORM
  * ============================================
- * Gère la soumission du formulaire de contact
+ * Formulaire géré directement par FormSubmit.co
+ * Aucun JavaScript nécessaire - l'envoi est natif
  */
 const ContactForm = {
-    /**
-     * Initialisation du module
-     */
     init() {
-        this.form = document.getElementById('contactForm');
-        if (this.form) {
-            this.bindEvents();
-        }
-    },
-
-    /**
-     * Attache les écouteurs d'événements
-     */
-    bindEvents() {
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-    },
-
-    /**
-     * Gère la soumission du formulaire
-     * @param {Event} e - Événement de soumission
-     */
-    async handleSubmit(e) {
-        e.preventDefault(); // Empêcher le rechargement de la page
-        
-        const formData = new FormData(this.form);
-        const submitBtn = this.form.querySelector('.form-submit');
-        const originalText = submitBtn.textContent;
-        
-        // Afficher l'état de chargement
-        submitBtn.textContent = 'Envoi en cours...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Envoi des données au serveur PHP
-            const response = await fetch('php/contact.php', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const result = await response.json();
-            
-            if (result.success) {
-                this.showMessage('Merci pour votre message ! Notre équipe vous contactera dans les plus brefs délais.', 'success');
-                this.form.reset(); // Vider le formulaire
-            } else {
-                this.showMessage('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.', 'error');
-            }
-        } catch (error) {
-            console.error('Erreur:', error);
-            this.showMessage('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.', 'error');
-        } finally {
-            // Restaurer le bouton
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    },
-
-    /**
-     * Affiche un message de confirmation ou d'erreur
-     * @param {string} message - Message à afficher
-     * @param {string} type - Type de message ('success' ou 'error')
-     */
-    showMessage(message, type) {
-        // Supprimer l'ancien message s'il existe
-        const existingMessage = this.form.querySelector('.form-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-        
-        // Créer l'élément de message
-        const messageEl = document.createElement('div');
-        messageEl.className = `form-message ${type}`;
-        messageEl.textContent = message;
-        
-        // Styles selon le type
-        const styles = type === 'success' 
-            ? 'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;' 
-            : 'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;';
-        
-        messageEl.style.cssText = `
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            text-align: center;
-            ${styles}
-        `;
-        
-        // Insérer au début du formulaire
-        this.form.insertBefore(messageEl, this.form.firstChild);
-        
-        // Supprimer automatiquement après 5 secondes
-        setTimeout(() => messageEl.remove(), 5000);
+        // Le formulaire est soumis directement à FormSubmit.co
+        // Pas de traitement JavaScript nécessaire
     }
 };
 
