@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ContactForm.init();
     SmoothScroll.init();
     ServicesSlider.init();
+    PartnersSlider.init();
+    Lightbox.init();
 });
 
 /* ============================================
@@ -271,7 +273,7 @@ const ServicesSlider = {
         this.track = document.querySelector('.services-track');
         this.prevBtn = document.querySelector('.slider-btn.prev');
         this.nextBtn = document.querySelector('.slider-btn.next');
-        
+
         if (this.slider && this.track) {
             this.bindEvents();
         }
@@ -285,10 +287,103 @@ const ServicesSlider = {
     scroll(direction) {
         const cardWidth = 290; // Largeur d'une carte + gap
         const scrollAmount = direction === 'prev' ? -cardWidth : cardWidth;
-        
+
         this.track.scrollBy({
             left: scrollAmount,
             behavior: 'smooth'
         });
+    }
+};
+
+/* ============================================
+ * MODULE: PARTNERS SLIDER
+ * ============================================
+ * Gère le défilement des cartes de partenaires
+ */
+const PartnersSlider = {
+    init() {
+        this.slider = document.querySelector('.partners-slider');
+        this.track = document.querySelector('.partners-track');
+        this.prevBtn = this.slider?.querySelector('.slider-btn.prev');
+        this.nextBtn = this.slider?.querySelector('.slider-btn.next');
+
+        if (this.slider && this.track) {
+            this.bindEvents();
+        }
+    },
+
+    bindEvents() {
+        this.prevBtn?.addEventListener('click', () => this.scroll('prev'));
+        this.nextBtn?.addEventListener('click', () => this.scroll('next'));
+    },
+
+    scroll(direction) {
+        const cardWidth = 365; // Largeur d'une carte + gap
+        const scrollAmount = direction === 'prev' ? -cardWidth : cardWidth;
+
+        this.track.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+};
+
+/* ============================================
+ * MODULE: LIGHTBOX
+ * ============================================
+ * Gère l'affichage des images en grand lors du clic
+ */
+const Lightbox = {
+    init() {
+        this.lightbox = document.getElementById('lightbox');
+        this.lightboxImg = document.getElementById('lightbox-img');
+        this.lightboxCaption = document.getElementById('lightbox-caption');
+        
+        if (this.lightbox) {
+            this.bindEvents();
+        }
+        
+        // Rendre la fonction accessible globalement
+        window.openLightbox = this.open.bind(this);
+        window.closeLightbox = this.close.bind(this);
+    },
+
+    bindEvents() {
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.close();
+            }
+        });
+
+        // Empêcher la propagation du clic sur le contenu
+        this.lightbox.querySelector('.lightbox-content')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    },
+
+    open(element) {
+        const img = element.tagName === 'IMG' ? element : element.querySelector('img');
+        if (!img) return;
+
+        const src = img.src;
+        const alt = img.alt;
+
+        this.lightboxImg.src = src;
+        this.lightboxImg.alt = alt;
+        
+        if (alt) {
+            this.lightboxCaption.textContent = alt;
+        } else {
+            this.lightboxCaption.textContent = '';
+        }
+
+        this.lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Empêcher le scroll
+    },
+
+    close() {
+        this.lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Réactiver le scroll
     }
 };

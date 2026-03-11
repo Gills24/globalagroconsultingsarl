@@ -54,6 +54,8 @@
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#partenaires">Partenaires</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -112,12 +114,12 @@
             <div class="dg-content">
                 <div class="dg-header">
                     <!-- Photo du DG en petit dans le coin -->
-                    <div class="dg-photo-wrapper">
-                        <img src="images/DG.jpeg" alt="Mr BIKELE PATRICK - Directeur Général" class="dg-photo">
+                    <div class="dg-photo-wrapper" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/DG.jpeg" alt="Mr BIKELE PATRICK - Ingénieur Agronome" class="dg-photo">
                     </div>
                     
                     <div class="dg-text-section">
-                        <p class="dg-excellence">SON EXCELLENCE</p>
+                        <p class="dg-excellence">INGENIEUR AGRONOME</p>
                         <div class="dg-name-title">
                             <h2 class="dg-name">Mr BIKELE PATRICK</h2>
                             <p class="dg-title">Président Directeur Général</p>
@@ -170,7 +172,7 @@
             <div class="services-track">
                 <!-- SERVICE 1 : Élevage -->
                 <div class="service-card fade-in">
-                    <img src="images/services elevage poussins.jpeg" alt="Élevage de volailles" class="service-image">
+                    <img src="images/services elevage poussins.jpeg" alt="Élevage de volailles" class="service-image clickable-image" onclick="openLightbox(this)">
                     <div class="service-icon"><i class="fas fa-feather"></i></div>
                     <h3>Élevage de Volailles</h3>
                     <p>Formation et accompagnement en élevage de poulets de chair. Techniques modernes pour optimiser vos rendements.</p>
@@ -179,7 +181,7 @@
                 
                 <!-- SERVICE 2 : Pépinières -->
                 <div class="service-card fade-in">
-                    <img src="images/services aide pépinières .jpeg" alt="Pépinières et cultures" class="service-image">
+                    <img src="images/services aide pépinières .jpeg" alt="Pépinières et cultures" class="service-image clickable-image" onclick="openLightbox(this)">
                     <div class="service-icon"><i class="fas fa-seedling"></i></div>
                     <h3>Pépinières & Cultures</h3>
                     <p>Conseils pour la création et la gestion de pépinières. Sélection des meilleures variétés adaptées à votre région.</p>
@@ -188,7 +190,7 @@
                 
                 <!-- SERVICE 3 : Formation -->
                 <div class="service-card fade-in">
-                    <img src="images/formation chez agro consuting.jpeg" alt="Formation agricole" class="service-image">
+                    <img src="images/formation chez agro consuting.jpeg" alt="Formation agricole" class="service-image clickable-image" onclick="openLightbox(this)">
                     <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Formation Agricole</h3>
                     <p>Programmes de formation pratiques pour maîtriser les techniques agricoles modernes et durables.</p>
@@ -197,7 +199,7 @@
                 
                 <!-- SERVICE 4 : Matériel d'élevage -->
                 <div class="service-card fade-in">
-                    <img src="images/matériels elevage de poussins.jpeg" alt="Matériel d'élevage" class="service-image">
+                    <img src="images/matériels elevage de poussins.jpeg" alt="Matériel d'élevage" class="service-image clickable-image" onclick="openLightbox(this)">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3>Matériel d'Élevage</h3>
                     <p>Conseils en équipements et matériels pour l'élevage. Optimisation de vos installations pour le bien-être animal.</p>
@@ -206,7 +208,7 @@
                 
                 <!-- SERVICE 5 : Grandes Cultures -->
                 <div class="service-card fade-in">
-                    <img src="images/champs de mais réalisé .jpeg" alt="Grandes cultures" class="service-image">
+                    <img src="images/champs de mais réalisé .jpeg" alt="Grandes cultures" class="service-image clickable-image" onclick="openLightbox(this)">
                     <div class="service-icon"><i class="fas fa-seedling"></i></div>
                     <h3>Grandes Cultures</h3>
                     <p>Accompagnement technique pour les cultures céréalières. Gestion optimale pour des rendements maximaux.</p>
@@ -215,7 +217,7 @@
                 
                 <!-- SERVICE 6 : Élevage porcin -->
                 <div class="service-card fade-in">
-                    <img src="images/service elevages de port.jpeg" alt="Élevage porcin" class="service-image">
+                    <img src="images/service elevages de port.jpeg" alt="Élevage porcin" class="service-image clickable-image" onclick="openLightbox(this)">
                     <div class="service-icon"><i class="fas fa-piggy-bank"></i></div>
                     <h3>Élevage Porcin</h3>
                     <p>Conseil et suivi en élevage de porcs. Techniques modernes pour une production optimale et durable.</p>
@@ -223,6 +225,96 @@
                 </div>
             </div>
             
+            <!-- Navigation du slider -->
+            <button class="slider-btn prev" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION RÉALISATIONS
+         ============================================
+         Grille présentant les cultures et réalisations
+    -->
+    <section class="realisations" id="realisations">
+        <div class="section-header fade-in">
+            <span class="section-tag">Nos Réalisations</span>
+            <h2 class="section-title">Nos Cultures et Productions</h2>
+            <p class="section-subtitle">Découvrez nos différentes réalisations dans le domaine agricole avec des cultures variées et adaptées à notre région.</p>
+        </div>
+
+        <div class="realisations-grid">
+            <!-- Culture 1 : Champ de salade -->
+            <div class="realisation-card fade-in">
+                <img src="images/champ de salade.jpeg" alt="Champ de salade" class="realisation-image clickable-image" onclick="openLightbox(this)">
+                <div class="realisation-info">
+                    <h3>Champ de Salade</h3>
+                    <p>Culture maraîchère de salades fraîches et croquantes, cultivées avec des méthodes durables.</p>
+                </div>
+            </div>
+
+            <!-- Culture 2 : Gombo -->
+            <div class="realisation-card fade-in">
+                <img src="images/champ gombo.jpeg" alt="Champ de gombo" class="realisation-image clickable-image" onclick="openLightbox(this)">
+                <div class="realisation-info">
+                    <h3>Champ de Gombo</h3>
+                    <p>Production de gombos frais, légumes riches en nutriments pour l'alimentation locale.</p>
+                </div>
+            </div>
+
+            <!-- Culture 3 : Piments -->
+            <div class="realisation-card fade-in">
+                <img src="images/piments .jpeg" alt="Champ de piments" class="realisation-image clickable-image" onclick="openLightbox(this)">
+                <div class="realisation-info">
+                    <h3>Champ de Piments</h3>
+                    <p>Culture de piments variés pour la consommation locale et la transformation.</p>
+                </div>
+            </div>
+
+            <!-- Culture 4 : Pépinière -->
+            <div class="realisation-card fade-in">
+                <img src="images/pépinière bananes et plantains.jpeg" alt="Pépinière de bananes et plantains" class="realisation-image clickable-image" onclick="openLightbox(this)">
+                <div class="realisation-info">
+                    <h3>Pépinière Bananes & Plantains</h3>
+                    <p>Production de plants de bananes et plantains de qualité pour les agriculteurs locaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION PARTENAIRES
+         ============================================
+         Visites et collaborations avec les partenaires
+    -->
+    <section class="partners" id="partenaires">
+        <div class="section-header fade-in">
+            <span class="section-tag">Nos Partenaires</span>
+            <h2 class="section-title">Visites et Collaborations</h2>
+            <p class="section-subtitle">Découvrez nos échanges et collaborations avec nos partenaires internationaux pour le développement agricole.</p>
+        </div>
+
+        <div class="partners-slider">
+            <div class="partners-track">
+                <!-- Partenaire 1 -->
+                <div class="partner-card fade-in">
+                    <img src="images/visite de partenaire france (pays d'arles )pour des accords de developpement.jpeg" alt="Visite de partenaires France - Pays d'Arles" class="partner-image clickable-image" onclick="openLightbox(this)">
+                    <div class="partner-info">
+                        <h3>Visite de Partenaires - France</h3>
+                        <p>Accords de développement avec le Pays d'Arles pour le transfert de compétences et l'innovation agricole.</p>
+                    </div>
+                </div>
+
+                <!-- Partenaire 2 -->
+                <div class="partner-card fade-in">
+                    <img src="images/visite des partenaire en france 1.jpeg" alt="Visite des partenaires en France" class="partner-image clickable-image" onclick="openLightbox(this)">
+                    <div class="partner-info">
+                        <h3>Collaboration Internationale</h3>
+                        <p>Échanges techniques et formation avec nos partenaires français pour le développement durable.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Navigation du slider -->
             <button class="slider-btn prev" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
             <button class="slider-btn next" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
@@ -404,8 +496,8 @@
             </div>
             
             <!-- Photo des locaux -->
-            <div class="location-image">
-                <img src="images/local a obala.jpeg" alt="Locaux de Agro Consulting à Obala">
+            <div class="location-image" onclick="openLightbox(this)">
+                <img src="images/local a obala.jpeg" alt="Locaux de Agro Consulting à Obala" class="clickable-image">
             </div>
             
             <!-- En bas : Quartier et contact -->
@@ -430,6 +522,18 @@
             </div>
         </div>
     </section>
+
+    <!-- ============================================
+         LIGHTBOX - Visionneuse d'images
+         ============================================
+    -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <img id="lightbox-img" src="" alt="Image en grand">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
 
     <!-- ============================================
          FOOTER (PIED DE PAGE)
