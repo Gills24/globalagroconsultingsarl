@@ -1738,3 +1738,64 @@ section {
 
 .partners .slider-btn.prev { left: 10px; }
 .partners .slider-btn.next { right: 10px; }
+
+/* ============================================
+ * RESPONSIVE PARTENAIRES - Mobile
+ * ============================================
+ * Centrage et défilement amélioré pour mobile
+ */
+@media (max-width: 768px) {
+    .partners-slider {
+        max-width: 100%;
+    }
+
+    .partners-track {
+        justify-content: flex-start;
+        padding: 0.5rem 1rem;
+    }
+
+    .partner-card {
+        flex: 0 0 280px;
+        max-width: 280px;
+    }
+
+    .partner-image {
+        height: 200px;
+    }
+
+    .partner-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .partner-info p {
+        font-size: 0.8rem;
+    }
+
+    .partners .slider-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners {
+        padding: 2rem 5%;
+    }
+
+    .partner-card {
+        flex: 0 0 260px;
+        max-width: 260px;
+    }
+
+    .partner-image {
+        height: 180px;
+    }
+
+    .partner-info {
+        padding: 1rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+}
